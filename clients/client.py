@@ -1,3 +1,5 @@
+import os
+
 import urllib3
 import requests
 
@@ -13,7 +15,7 @@ class HttpClient:
         self.timeout = timeout
         self.version = api_version
         self.session = requests.session()
-        self.session.headers['Authorization'] = f'Bearer '
+        self.session.headers['Authorization'] = f'Bearer {os.getenv("TIMEWEB_CLOUD_TOKEN")}'
 
     def get(self, url, params=None, **kwargs):
         return self.request('get', url, params=params, **kwargs)
