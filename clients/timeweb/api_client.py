@@ -8,4 +8,7 @@ class TimeWebApiClient(HttpClient):
     def get_servers(self):
         return self.get('/servers').json()
 
+    def get_finance_info(self):
+        return self.get('/account/finances').json()
+
 
